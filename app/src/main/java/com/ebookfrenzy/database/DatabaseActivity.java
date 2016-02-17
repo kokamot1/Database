@@ -26,8 +26,10 @@ public class DatabaseActivity extends AppCompatActivity {
     public void newProduct (View view) {
         MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
 
-        int quantity =
-                Integer.parseInt(quantityBox.getText().toString());
+        int quantity = 0;
+        try {
+            quantity = Integer.parseInt(quantityBox.getText().toString());
+        } catch (NumberFormatException ex) {}
 
         Product product =
                 new Product(productBox.getText().toString(), quantity);
