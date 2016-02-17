@@ -107,4 +107,11 @@ public class MyDBHandler extends SQLiteOpenHelper {
             return false;
         }
     }
+
+    public void deleteAllProducts() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_PRODUCTS, null, null);
+    }
+
+
 } 

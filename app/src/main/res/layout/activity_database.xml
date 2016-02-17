@@ -109,5 +109,12 @@
             android:text="@string/delete"
             android:id="@+id/button3"
             android:onClick="removeProduct"  />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/delete_all"
+            android:id="@+id/button5"
+            android:onClick="removeAllProducts"  />
     </LinearLayout>
 </LinearLayout>

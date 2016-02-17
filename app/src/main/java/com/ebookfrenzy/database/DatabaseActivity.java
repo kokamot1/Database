@@ -87,6 +87,14 @@ public class DatabaseActivity extends AppCompatActivity {
             idView.setText("Error updating");
     }
 
+    public void removeAllProducts(View view) {
+        MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
+        dbHandler.deleteAllProducts();
+        idView.setText("All Products deleted");
+        productBox.setText("");
+        quantityBox.setText("");
+    }
+
     private int getQuantity() {
         int quantity = DEFAULT_QUANTITY;
         try {
