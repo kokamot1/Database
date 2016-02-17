@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Database</string>
+    <string name="productID">ProductID</string>
+    <string name="notAssigned">Not Assigned</string>
+    <string name="productName">Product Name</string>
+    <string name="productQty">Product Quantity</string>
+    <string name="add">Add</string>
+    <string name="find">Find</string>
+    <string name="delete">Delete</string>
 </resources>
