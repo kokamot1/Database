@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 public class DatabaseActivity extends AppCompatActivity {
 
+    public static final int DEFAULT_QUANTITY = 0;
     TextView idView;
     EditText productBox;
     EditText quantityBox;
@@ -26,10 +27,7 @@ public class DatabaseActivity extends AppCompatActivity {
     public void newProduct (View view) {
         MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
 
-        int quantity = 0;
-        try {
-            quantity = Integer.parseInt(quantityBox.getText().toString());
-        } catch (NumberFormatException ex) {}
+        int quantity = this.getQuantity();
 
         Product product =
                 new Product(productBox.getText().toString(), quantity);
@@ -69,5 +67,31 @@ public class DatabaseActivity extends AppCompatActivity {
         }
         else
             idView.setText("No Match Found");
+    }
+
+    public void updateProduct(View view) {
+        String productName = this.productBox.getText().toString();
+        MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
+        Product product = dbHandler.findProduct(productName);
+
+        if (product == null) {
+            idView.setText("Unknown Product");
+            return;
+        }
+        int quantity = this.getQuantity();
+
+        boolean result = dbHandler.updateProduct(product.getID(), quantity);
+        if (result)
+            idView.setText("Record Updated");
+        else
+            idView.setText("Error updating");
+    }
+
+    private int getQuantity() {
+        int quantity = DEFAULT_QUANTITY;
+        try {
+            quantity = Integer.parseInt(quantityBox.getText().toString());
+        } catch (NumberFormatException ex) {}
+        return quantity;
     }
 }

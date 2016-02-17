@@ -73,7 +73,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal">
 
         <Button
@@ -89,6 +89,19 @@
             android:text="@string/find"
             android:id="@+id/button2"
             android:onClick="lookupProduct"  />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/update"
+            android:id="@+id/button4"
+            android:onClick="updateProduct"  />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
 
         <Button
             android:layout_width="wrap_content"
